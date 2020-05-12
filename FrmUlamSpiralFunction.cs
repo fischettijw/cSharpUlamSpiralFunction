@@ -20,7 +20,12 @@ namespace cSharpUlamSpiralFunction
 
         private void FrmUlamSpiralFunction_Load(object sender, EventArgs e)
         {
-            Point test = UlamSpiralCoordinates(73);
+            int[] n = new int[13] { 360, 364, 1000, 25, 73, 4, 8, 2, 6, 10, 3, 7, 2381 };
+            for (int i = 0; i < n.Length; i++)
+            {
+                Point coord = UlamSpiralCoordinates(n[i]);
+                LbxOutput.Items.Add($"n={n[i]}  x={coord.X}    y={coord.Y}");
+            }
         }
 
         public Point UlamSpiralCoordinates(int n)
@@ -33,7 +38,7 @@ namespace cSharpUlamSpiralFunction
             int C = Convert.ToInt32(Math.Floor(Convert.ToDouble((p + 1) / 4)));
             int P = p % 4;
 
-            int xAC = 0; int xB = 0; int yAC = 0; int yB = 0 ;
+            int xAC = 0; int xB = 0; int yAC = 0; int yB = 0;
 
             switch (P)
             {
