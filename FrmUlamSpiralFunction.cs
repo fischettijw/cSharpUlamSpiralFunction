@@ -24,11 +24,11 @@ namespace cSharpUlamSpiralFunction
             for (int i = 0; i < n.Length; i++)
             {
                 Point coord = UlamSpiralCoordinates(n[i]);
-                LbxOutput.Items.Add($"n={n[i]}  x={coord.X}    y={coord.Y}");
+                LbxOutput.Items.Add($"   n={n[i].RJ(6,5)} x= {coord.X.RJ(4,5)} y= {coord.Y.RJ(4)}");
             }
         }
 
-        public Point UlamSpiralCoordinates(int n)
+        private Point UlamSpiralCoordinates(int n)
         {
             Point xyCoor = new Point();
             int p = Convert.ToInt32(Math.Floor(Math.Sqrt((4 * n) + 1)));
@@ -42,29 +42,17 @@ namespace cSharpUlamSpiralFunction
 
             switch (P)
             {
-                case 0: //4   x=-1   y=-1    A=0  B=1  C=1
-                    xAC = 1;
-                    xB = 0;
-                    yAC = 0;
-                    yB = -1;
+                case 0:
+                    xAC = 1; xB = 0; yAC = 0; yB = -1;
                     break;
-                case 1: //2381   x=24   y=5    A=29  B=24  C=24
-                    xAC = 0;
-                    xB = 1;
-                    yAC = 1;
-                    yB = 0;
+                case 1:
+                    xAC = 0; xB = 1; yAC = 1; yB = 0;
                     break;
-                case 2: //364    x=6    y=10    A=3  B=10  C=9    
-                    xAC = -1;
-                    xB = 0;
-                    yAC = 0;
-                    yB = 1;
+                case 2:
+                    xAC = -1; xB = 0; yAC = 0; yB = 1;
                     break;
-                case 3: //1000    x=-16   y=8    A=8  B=16  C=16 
-                    xAC = 0;
-                    xB = -1;
-                    yAC = -1;
-                    yB = 0;
+                case 3:
+                    xAC = 0; xB = -1; yAC = -1; yB = 0;
                     break;
             }
             xyCoor.X = (xAC * (A - C)) + (xB * (B));
@@ -72,4 +60,29 @@ namespace cSharpUlamSpiralFunction
             return xyCoor;
         }
     }
+
+    public static class StringFormatting
+    {
+        public static string LJ(this string str, int width)
+        {
+            return str.PadRight(width);
+        }
+
+        public static string RJ(this string str, int width, int rightSpaces = 0)
+        {
+            return str.PadLeft(width) + "".PadLeft(rightSpaces);
+        }
+
+        public static string LJ(this int str, int width)
+        {
+            return str.ToString().PadRight(width);
+        }
+
+        public static string RJ(this int str, int width, int rightSpaces = 0)
+        {
+            return str.ToString().PadLeft(width) + "".PadLeft(rightSpaces);
+        }
+
+    }
+
 }

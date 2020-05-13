@@ -33,12 +33,12 @@
             // 
             // LbxOutput
             // 
-            this.LbxOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbxOutput.Font = new System.Drawing.Font("Lucida Sans Typewriter", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbxOutput.FormattingEnabled = true;
-            this.LbxOutput.ItemHeight = 24;
+            this.LbxOutput.ItemHeight = 22;
             this.LbxOutput.Location = new System.Drawing.Point(158, 21);
             this.LbxOutput.Name = "LbxOutput";
-            this.LbxOutput.Size = new System.Drawing.Size(448, 412);
+            this.LbxOutput.Size = new System.Drawing.Size(448, 400);
             this.LbxOutput.TabIndex = 0;
             // 
             // FrmUlamSpiralFunction
