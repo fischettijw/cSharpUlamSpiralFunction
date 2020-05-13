@@ -36,16 +36,16 @@
             this.LbxOutput.Font = new System.Drawing.Font("Lucida Sans Typewriter", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbxOutput.FormattingEnabled = true;
             this.LbxOutput.ItemHeight = 22;
-            this.LbxOutput.Location = new System.Drawing.Point(158, 21);
+            this.LbxOutput.Location = new System.Drawing.Point(23, 11);
             this.LbxOutput.Name = "LbxOutput";
-            this.LbxOutput.Size = new System.Drawing.Size(448, 400);
+            this.LbxOutput.Size = new System.Drawing.Size(440, 598);
             this.LbxOutput.TabIndex = 0;
             // 
             // FrmUlamSpiralFunction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(487, 627);
             this.Controls.Add(this.LbxOutput);
             this.Name = "FrmUlamSpiralFunction";
             this.Text = "Ulam Spiral Function";

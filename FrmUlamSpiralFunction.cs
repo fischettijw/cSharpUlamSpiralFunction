@@ -24,7 +24,8 @@ namespace cSharpUlamSpiralFunction
             for (int i = 0; i < n.Length; i++)
             {
                 Point coord = UlamSpiralCoordinates(n[i]);
-                LbxOutput.Items.Add($"   n={n[i].RJ(6,5)} x= {coord.X.RJ(4,5)} y= {coord.Y.RJ(4)}");
+                //LbxOutput.Items.Add($"   n={n[i]} x={coord.X} y={coord.Y}");
+                LbxOutput.Items.Add($"   n={n[i].RJ(6, 5)} x={coord.X.RJ(4, 5)} y={coord.Y.RJ(4)}");
             }
         }
 
@@ -73,14 +74,16 @@ namespace cSharpUlamSpiralFunction
             return str.PadLeft(width) + "".PadLeft(rightSpaces);
         }
 
-        public static string LJ(this int str, int width)
+        public static string LJ(this int num, int width)
         {
-            return str.ToString().PadRight(width);
+            //return num.ToString().PadRight(width);
+            return num.ToString().LJ(width);
         }
 
-        public static string RJ(this int str, int width, int rightSpaces = 0)
+        public static string RJ(this int num, int width, int rightSpaces = 0)
         {
-            return str.ToString().PadLeft(width) + "".PadLeft(rightSpaces);
+            //return num.ToString().PadLeft(width) + "".PadLeft(rightSpaces);
+            return num.ToString().RJ(width,rightSpaces);
         }
 
     }
