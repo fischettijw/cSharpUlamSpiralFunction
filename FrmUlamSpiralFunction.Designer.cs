@@ -38,14 +38,14 @@
             this.LbxOutput.ItemHeight = 22;
             this.LbxOutput.Location = new System.Drawing.Point(23, 11);
             this.LbxOutput.Name = "LbxOutput";
-            this.LbxOutput.Size = new System.Drawing.Size(440, 598);
+            this.LbxOutput.Size = new System.Drawing.Size(474, 378);
             this.LbxOutput.TabIndex = 0;
             // 
             // FrmUlamSpiralFunction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 627);
+            this.ClientSize = new System.Drawing.Size(520, 418);
             this.Controls.Add(this.LbxOutput);
             this.Name = "FrmUlamSpiralFunction";
             this.Text = "Ulam Spiral Function";
