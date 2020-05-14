@@ -33,11 +33,11 @@ namespace cSharpUlamSpiralFunction
         private Point UlamSpiralCoordinates(int n)
         {
             Point xyCoor = new Point();
-            int p = Convert.ToInt32(Math.Floor(Math.Sqrt((4 * n) + 1)));
-            int q = n - Convert.ToInt32(Convert.ToDouble(p * p) / 4);
+            int p = (Int32)(Math.Floor(Math.Sqrt((4 * n) + 1)));
+            int q = (Int32)((Double)(p * p) / 4);
             int A = q;
-            int B = Convert.ToInt32(Math.Floor(Convert.ToDouble((p + 2) / 4)));
-            int C = Convert.ToInt32(Math.Floor(Convert.ToDouble((p + 1) / 4)));
+            int B = (Int32)(Math.Floor((Double)((p + 2) / 4)));
+            int C = (Int32)(Math.Floor((Double)((p + 1) / 4)));
             int P = p % 4;
 
             int xAC = 0; int xB = 0; int yAC = 0; int yB = 0;
