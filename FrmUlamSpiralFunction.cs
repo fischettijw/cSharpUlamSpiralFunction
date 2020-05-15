@@ -26,18 +26,18 @@ namespace cSharpUlamSpiralFunction
             {
                 Point coord = UlamSpiralCoordinates(n[i]);
                 //LbxOutput.Items.Add($"   n={n[i]} x={coord.X} y={coord.Y}");
-                LbxOutput.Items.Add($" {i.RJ(3, '0')}   n={n[i].RJ(6, ' ', 5)} x={coord.X.RJ(4, ' ' ,5)} y={coord.Y.RJ(4, ' ')}");
+                LbxOutput.Items.Add($" {i.RJ(3, '0')}   n={n[i].RJ(6, ' ', 5)} x={coord.X.RJ(4, ' ', 5)} y={coord.Y.RJ(4, ' ')}");
             }
         }
 
         private Point UlamSpiralCoordinates(int n)
         {
             Point xyCoor = new Point();
-            int p = (Int32)(Math.Floor(Math.Sqrt((4 * n) + 1)));
-            int q = (Int32)((Double)(p * p) / 4);
+            int p = (Int32)Math.Floor(Math.Sqrt((4 * n) + 1));
+            int q = (Int32)((p * p) / 4);
             int A = q;
-            int B = (Int32)(Math.Floor((Double)((p + 2) / 4)));
-            int C = (Int32)(Math.Floor((Double)((p + 1) / 4)));
+            int B = (Int32)Math.Floor((Double)((p + 2) / 4));
+            int C = (Int32)Math.Floor((Double)((p + 1) / 4));
             int P = p % 4;
 
             int xAC = 0; int xB = 0; int yAC = 0; int yB = 0;
@@ -65,12 +65,12 @@ namespace cSharpUlamSpiralFunction
 
     public static class StringFormatting
     {
-        public static string LJ(this string str, int width, char chr )
+        public static string LJ(this string str, int width, char chr)
         {
             return str.PadRight(width, chr);
         }
 
-        public static string RJ(this string str, int width, char chr , int rightSpaces = 0)
+        public static string RJ(this string str, int width, char chr, int rightSpaces = 0)
         {
             return str.PadLeft(width, chr) + "".PadLeft(rightSpaces);
         }
@@ -84,7 +84,7 @@ namespace cSharpUlamSpiralFunction
         public static string RJ(this int num, int width, char chr, int rightSpaces = 0)
         {
             //return num.ToString().PadLeft(width) + "".PadLeft(rightSpaces);
-            return num.ToString().RJ(width, chr ,rightSpaces);
+            return num.ToString().RJ(width, chr, rightSpaces);
         }
 
     }
