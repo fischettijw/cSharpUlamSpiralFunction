@@ -21,40 +21,51 @@ namespace cSharpUlamSpiralFunction
         private void FrmUlamSpiralFunction_Load(object sender, EventArgs e)
         {
             int[] n = new int[13] { 360, 364, 1000, 25, 73, 4, 8, 2, 6, 10, 3, 7, 2381 };
-            LbxOutput.Items.Clear();
             for (int i = 0; i < n.Length; i++)
             {
                 Point coord = UlamSpiralCoordinates(n[i]);
-                //LbxOutput.Items.Add($"   n={n[i]} x={coord.X} y={coord.Y}");
+            //    LbxOutput.Items.Add($"n={n[i]}  x={coord.X}    y={coord.Y}");
                 LbxOutput.Items.Add($" {i.RJ(3, '0')}   n={n[i].RJ(6, ' ', 5)} x={coord.X.RJ(4, ' ', 5)} y={coord.Y.RJ(4, ' ')}");
             }
         }
 
-        private Point UlamSpiralCoordinates(int n)
+        public Point UlamSpiralCoordinates(int n)
         {
             Point xyCoor = new Point();
-            int p = (Int32)Math.Floor(Math.Sqrt((4 * n) + 1));
-            int q = (Int32)((p * p) / 4);
+            int p = Convert.ToInt32(Math.Floor(Math.Sqrt((4 * n) + 1)));
+            int q = n - Convert.ToInt32(Convert.ToDouble(p * p) / 4);
             int A = q;
-            int B = (Int32)Math.Floor((Double)((p + 2) / 4));
-            int C = (Int32)Math.Floor((Double)((p + 1) / 4));
+            int B = Convert.ToInt32(Math.Floor(Convert.ToDouble((p + 2) / 4)));
+            int C = Convert.ToInt32(Math.Floor(Convert.ToDouble((p + 1) / 4)));
             int P = p % 4;
 
             int xAC = 0; int xB = 0; int yAC = 0; int yB = 0;
 
             switch (P)
             {
-                case 0:
-                    xAC = 1; xB = 0; yAC = 0; yB = -1;
+                case 0: //4   x=-1   y=-1    A=0  B=1  C=1
+                    xAC = 1;
+                    xB = 0;
+                    yAC = 0;
+                    yB = -1;
                     break;
-                case 1:
-                    xAC = 0; xB = 1; yAC = 1; yB = 0;
+                case 1: //2381   x=24   y=5    A=29  B=24  C=24
+                    xAC = 0;
+                    xB = 1;
+                    yAC = 1;
+                    yB = 0;
                     break;
-                case 2:
-                    xAC = -1; xB = 0; yAC = 0; yB = 1;
+                case 2: //364    x=6    y=10    A=3  B=10  C=9    
+                    xAC = -1;
+                    xB = 0;
+                    yAC = 0;
+                    yB = 1;
                     break;
-                case 3:
-                    xAC = 0; xB = -1; yAC = -1; yB = 0;
+                case 3: //1000    x=-16   y=8    A=8  B=16  C=16 
+                    xAC = 0;
+                    xB = -1;
+                    yAC = -1;
+                    yB = 0;
                     break;
             }
             xyCoor.X = (xAC * (A - C)) + (xB * (B));
