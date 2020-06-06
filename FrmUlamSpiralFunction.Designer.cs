@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUlamSpiralFunction));
             this.LbxOutput = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 418);
             this.Controls.Add(this.LbxOutput);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmUlamSpiralFunction";
             this.Text = "Ulam Spiral Function";
             this.Load += new System.EventHandler(this.FrmUlamSpiralFunction_Load);
