@@ -6,41 +6,59 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Timers;
+
 
 namespace cSharpUlamSpiralFunction
 {
     class UlamSpiral
     {
-        private Panel pnlUSl;
+        private Panel pnlUlamSpiral;
         private int spiralSize;
         private int trf;
-        private int lblSize;
+        private int cellSize;
+        private int cellNum = 0;
+        private System.Timers.Timer timTimer = new System.Timers.Timer();
 
-        public UlamSpiral(Panel pnlUlamSpiral, int gridSize)
+        public UlamSpiral(int gridSize, Form frm)
         {
-            pnlUSl = pnlUlamSpiral;
+            pnlUlamSpiral = new Panel();
+            pnlUlamSpiral.Location = new Point(23, 235);
+            pnlUlamSpiral.Size = new Size(400, 400);
+            pnlUlamSpiral.BorderStyle = BorderStyle.FixedSingle;
+            frm.Controls.Add(pnlUlamSpiral);
+
             spiralSize = gridSize;
             trf = gridSize / 2;
-            lblSize = pnlUlamSpiral.Width / spiralSize;
-            CreateSprial();
+            cellSize = pnlUlamSpiral.Width / spiralSize;
+
+            timTimer.Interval = 5000;
+            timTimer.Elapsed += CreateCell;
+
+            timTimer.AutoReset = false;
+            timTimer.Enabled = true;
         }
 
-        private void CreateSprial()
+
+
+
+
+        private void CreateCell(object sender, ElapsedEventArgs e)
         {
 
-            for (int i = 0; i < spiralSize * spiralSize; i++)
-            {
-                Label lbl = new Label();
-                Point coor = UlamSpiral.UlamSpiralCoordinate(i);
-                lbl.Location = new Point((coor.X + trf) * lblSize, (coor.Y + trf) * lblSize);
-                lbl.Size = new Size(lblSize, lblSize);
-                lbl.BackColor = Color.Red;
-                lbl.BorderStyle = BorderStyle.FixedSingle;
-                lbl.Text = i.ToString();
-                lbl.Font = new Font("New Courier", lblSize / 4);
-                lbl.TextAlign = ContentAlignment.MiddleCenter;
-                pnlUSl.Controls.Add(lbl);
-            }
+            Label lbl = new Label();
+            Point coor = UlamSpiral.UlamSpiralCoordinate(cellNum);
+            lbl.Location = new Point((coor.X + trf) * cellSize, (coor.Y + trf) * cellSize);
+            lbl.Size = new Size(cellSize, cellSize);
+            lbl.BackColor = Color.Red;
+            lbl.BorderStyle = BorderStyle.FixedSingle;
+            lbl.Text = cellNum.ToString();
+            lbl.Font = new Font("New Courier", cellSize / 4);
+            lbl.TextAlign = ContentAlignment.MiddleCenter;
+            pnlUlamSpiral.Controls.Add(lbl);
+
+            cellNum++;
+            if (cellNum >= spiralSize) { timTimer.Stop(); }
 
         }
 
