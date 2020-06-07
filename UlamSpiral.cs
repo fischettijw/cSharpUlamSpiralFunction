@@ -36,18 +36,13 @@ namespace cSharpUlamSpiralFunction
                 lbl.Size = new Size(lblSize, lblSize);
                 lbl.BackColor = Color.Red;
                 lbl.BorderStyle = BorderStyle.FixedSingle;
-                //lbl.Text = i.ToString();
-                //lbl.Font = new Font("New Courier", 14);
+                lbl.Text = i.ToString();
+                lbl.Font = new Font("New Courier", 14);
                 lbl.TextAlign = ContentAlignment.MiddleCenter;
                 pnlUSl.Controls.Add(lbl);
             }
+
         }
-
-
-
-
-
-
 
         public static Point UlamSpiralCoordinate(int n)
         {
@@ -72,5 +67,8 @@ namespace cSharpUlamSpiralFunction
             xyCoor.Y = (yAC * (A - C)) + (yB * (B));
             return xyCoor;
         }
+
     }
+
 }
+

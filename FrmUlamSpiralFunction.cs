@@ -22,7 +22,7 @@ namespace cSharpUlamSpiralFunction
 
         private void FrmUlamSpiralFunction_Load(object sender, EventArgs e)
         {
-            int sz = 25;
+            int sz = 9;
             int ss = sz / 2;
             UlamSpiral US = new UlamSpiral(PnlSpiral, sz);
 
