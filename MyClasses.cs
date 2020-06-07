@@ -8,53 +8,6 @@ using System.Windows.Forms;
 
 namespace cSharpUlamSpiralFunction
 {
-    public class MyMethods
-    {
-        public static Point UlamSpiralCoordinates(int n)
-        {
-            Point xyCoor = new Point();
-            int p = Convert.ToInt32(Math.Floor(Math.Sqrt((4 * n) + 1)));
-            int q = n - Convert.ToInt32(Convert.ToDouble(p * p) / 4);
-            int A = q;
-            int B = Convert.ToInt32(Math.Floor(Convert.ToDouble((p + 2) / 4)));
-            int C = Convert.ToInt32(Math.Floor(Convert.ToDouble((p + 1) / 4)));
-            int P = p % 4;
-
-            int xAC = 0; int xB = 0; int yAC = 0; int yB = 0;
-
-            switch (P)
-            {
-                case 0:
-                    xAC = 1;
-                    xB = 0;
-                    yAC = 0;
-                    yB = -1;
-                    break;
-                case 1:
-                    xAC = 0;
-                    xB = 1;
-                    yAC = 1;
-                    yB = 0;
-                    break;
-                case 2:
-                    xAC = -1;
-                    xB = 0;
-                    yAC = 0;
-                    yB = 1;
-                    break;
-                case 3:
-                    xAC = 0;
-                    xB = -1;
-                    yAC = -1;
-                    yB = 0;
-                    break;
-            }
-            xyCoor.X = (xAC * (A - C)) + (xB * (B));
-            xyCoor.Y = (yAC * (A - C)) + (yB * (B));
-            return xyCoor;
-        }
-    }
-
     public static class StringExtensions
     {
         public static string LJ(this string str, int width, char chr = ' ')
