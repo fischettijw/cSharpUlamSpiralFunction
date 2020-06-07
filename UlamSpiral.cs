@@ -37,7 +37,7 @@ namespace cSharpUlamSpiralFunction
                 lbl.BackColor = Color.Red;
                 lbl.BorderStyle = BorderStyle.FixedSingle;
                 lbl.Text = i.ToString();
-                lbl.Font = new Font("New Courier", 14);
+                lbl.Font = new Font("New Courier", lblSize / 4);
                 lbl.TextAlign = ContentAlignment.MiddleCenter;
                 pnlUSl.Controls.Add(lbl);
             }
