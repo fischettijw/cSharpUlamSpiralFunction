@@ -11,18 +11,19 @@ namespace cSharpUlamSpiralFunction
 {
     class UlamSpiral
     {
-        private Panel pnlUS;
+        private Panel pnlUlamSpiral;
         private int spiralSize;
         private int trf;
-        private int lblSize;
+        private int labelSize;
 
-        public UlamSpiral(Panel pnlUlamSpiral, int gridSize)
+        public UlamSpiral(Panel pnlUS, int gridSize)
         {
-            pnlUS = pnlUlamSpiral;
+            pnlUlamSpiral = pnlUS;
             spiralSize = gridSize;
             trf = gridSize / 2;
-            lblSize = pnlUlamSpiral.Width / spiralSize;
+            labelSize = pnlUlamSpiral.Width / spiralSize;
             CreateSprial();
+
         }
 
         private void CreateSprial()
@@ -30,18 +31,28 @@ namespace cSharpUlamSpiralFunction
 
             for (int i = 0; i < spiralSize * spiralSize; i++)
             {
-                Label lbl = new Label();
                 Point coor = UlamSpiral.UlamSpiralCoordinate(i);
-                lbl.Size = new Size(lblSize, lblSize);
-                lbl.Location = new Point((coor.X + trf) * lblSize, (coor.Y + trf) * lblSize);
+
+                Label lbl = new Label();
+                lbl.Size = new Size(labelSize, labelSize);
+                lbl.Location = new Point((coor.X + trf) * labelSize, (coor.Y + trf) * labelSize);
                 lbl.BackColor = Color.Red;
                 lbl.BorderStyle = BorderStyle.FixedSingle;
                 lbl.Text = i.ToString();
-                lbl.Font = new Font("New Courier", lblSize / 4);
+                lbl.Font = new Font("New Courier", labelSize / 4);
                 lbl.TextAlign = ContentAlignment.MiddleCenter;
-                pnlUS.Controls.Add(lbl);
+                lbl.Name = $"N{i}";
+                lbl.Tag = $"{(coor.X + trf)}|{coor.Y + trf}";
+                lbl.Click += Lbl_Click;
+                pnlUlamSpiral.Controls.Add(lbl);
             }
 
+        }
+
+        private void Lbl_Click(object sender, EventArgs e)
+        {
+            Label ABC = (Label)sender;
+            ABC.BackColor = Color.Yellow;
         }
 
         public static Point UlamSpiralCoordinate(int n)

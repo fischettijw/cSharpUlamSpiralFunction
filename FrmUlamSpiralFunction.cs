@@ -26,6 +26,8 @@ namespace cSharpUlamSpiralFunction
             int ss = sz / 2;
             UlamSpiral US = new UlamSpiral(PnlSpiral, sz);
 
+
+
             //ListBoxPrint p = new ListBoxPrint(LbxOutput);
 
             //for (int i = 0; i < (sz * sz); i++)
