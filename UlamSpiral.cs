@@ -11,14 +11,14 @@ namespace cSharpUlamSpiralFunction
 {
     class UlamSpiral
     {
-        private Panel pnlUSl;
+        private Panel pnlUS;
         private int spiralSize;
         private int trf;
         private int lblSize;
 
         public UlamSpiral(Panel pnlUlamSpiral, int gridSize)
         {
-            pnlUSl = pnlUlamSpiral;
+            pnlUS = pnlUlamSpiral;
             spiralSize = gridSize;
             trf = gridSize / 2;
             lblSize = pnlUlamSpiral.Width / spiralSize;
@@ -32,14 +32,14 @@ namespace cSharpUlamSpiralFunction
             {
                 Label lbl = new Label();
                 Point coor = UlamSpiral.UlamSpiralCoordinate(i);
-                lbl.Location = new Point((coor.X + trf) * lblSize, (coor.Y + trf) * lblSize);
                 lbl.Size = new Size(lblSize, lblSize);
+                lbl.Location = new Point((coor.X + trf) * lblSize, (coor.Y + trf) * lblSize);
                 lbl.BackColor = Color.Red;
                 lbl.BorderStyle = BorderStyle.FixedSingle;
                 lbl.Text = i.ToString();
                 lbl.Font = new Font("New Courier", lblSize / 4);
                 lbl.TextAlign = ContentAlignment.MiddleCenter;
-                pnlUSl.Controls.Add(lbl);
+                pnlUS.Controls.Add(lbl);
             }
 
         }

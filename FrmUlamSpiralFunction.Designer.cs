@@ -45,7 +45,6 @@
             // 
             // PnlSpiral
             // 
-            this.PnlSpiral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PnlSpiral.Location = new System.Drawing.Point(23, 235);
             this.PnlSpiral.Name = "PnlSpiral";
             this.PnlSpiral.Size = new System.Drawing.Size(400, 400);
