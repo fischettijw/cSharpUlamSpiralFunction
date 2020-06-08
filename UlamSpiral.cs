@@ -32,7 +32,7 @@ namespace cSharpUlamSpiralFunction
             trf = gridSize / 2;
             cellSize = pnlUlamSpiral.Width / spiralSize;
 
-            timTimer.Interval = 5000;
+            timTimer.Interval = 500;
             timTimer.Elapsed += CreateCell;
 
             timTimer.AutoReset = false;
