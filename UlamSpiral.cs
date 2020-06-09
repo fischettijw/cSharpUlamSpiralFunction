@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -30,23 +31,40 @@ namespace cSharpUlamSpiralFunction
             {Status.Dead,Color.Gray}
          };
 
+        private Form spiralForm;
         private Panel pnlUlamSpiral;
         private int spiralSize;
         private int trf;
         private int labelSize;
         private Random rnd = new Random();
+        private int panelSize = 500;
 
-        public UlamSpiral(Panel pnlUS, int gridSize)
+        public UlamSpiral(Form sForm, int gridSize)
         {
-            pnlUlamSpiral = pnlUS;
+            spiralForm = sForm;
             spiralSize = gridSize;
             trf = gridSize / 2;
-            labelSize = pnlUlamSpiral.Width / spiralSize;
-            CreateSprial();
+            CreateNewFormAndPanel();
+            CreateSpiral();
 
         }
 
-        private void CreateSprial()
+        private void CreateNewFormAndPanel()
+        {
+            spiralForm = new Form();
+            spiralForm.Text = "Ulam Spiral";
+            pnlUlamSpiral = new Panel();
+            pnlUlamSpiral.Dock = DockStyle.Fill;
+            pnlUlamSpiral.Size = new Size(panelSize, panelSize);
+            pnlUlamSpiral.BorderStyle = BorderStyle.FixedSingle;
+            labelSize = pnlUlamSpiral.Width / spiralSize;
+            spiralForm.ClientSize = new Size(labelSize * spiralSize, labelSize * spiralSize);
+            spiralForm.Location = new Point(100, 100);
+            spiralForm.Controls.Add(pnlUlamSpiral);
+            spiralForm.Show();
+        }
+
+        private void CreateSpiral()
         {
             for (int i = 0; i < spiralSize * spiralSize; i++)
             {
@@ -56,7 +74,6 @@ namespace cSharpUlamSpiralFunction
                 lbl.Size = new Size(labelSize, labelSize);
                 lbl.Location = new Point((coor.X + trf) * labelSize, (coor.Y + trf) * labelSize);
                 lbl.BackColor = StatusColor[(Status)rnd.Next(Enum.GetNames(typeof(Status)).Length)];
-                //lbl.BackColor = Color.Red;
                 lbl.BorderStyle = BorderStyle.FixedSingle;
                 lbl.Text = i.ToString();
                 lbl.Font = new Font("New Courier", labelSize / 4);
@@ -72,7 +89,8 @@ namespace cSharpUlamSpiralFunction
         private void Lbl_Click(object sender, EventArgs e)
         {
             Label cell = (Label)sender;
-            cell.BackColor = StatusColor[(Status)rnd.Next(Enum.GetNames(typeof(Status)).Length)];
+            //cell.BackColor = StatusColor[(Status)rnd.Next(Enum.GetNames(typeof(Status)).Length)];
+            cell.BackColor = StatusColor[Status.TestedNegitive];
         }
 
         public static Point UlamSpiralCoordinate(int n)

@@ -29,34 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUlamSpiralFunction));
-            this.LbxOutput = new System.Windows.Forms.ListBox();
-            this.PnlSpiral = new System.Windows.Forms.Panel();
             this.SuspendLayout();
-            // 
-            // LbxOutput
-            // 
-            this.LbxOutput.Font = new System.Drawing.Font("Lucida Sans Typewriter", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbxOutput.FormattingEnabled = true;
-            this.LbxOutput.ItemHeight = 22;
-            this.LbxOutput.Location = new System.Drawing.Point(23, 12);
-            this.LbxOutput.Name = "LbxOutput";
-            this.LbxOutput.Size = new System.Drawing.Size(400, 136);
-            this.LbxOutput.TabIndex = 0;
-            // 
-            // PnlSpiral
-            // 
-            this.PnlSpiral.Location = new System.Drawing.Point(23, 235);
-            this.PnlSpiral.Name = "PnlSpiral";
-            this.PnlSpiral.Size = new System.Drawing.Size(400, 400);
-            this.PnlSpiral.TabIndex = 1;
             // 
             // FrmUlamSpiralFunction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(445, 655);
-            this.Controls.Add(this.PnlSpiral);
-            this.Controls.Add(this.LbxOutput);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmUlamSpiralFunction";
             this.Text = "Ulam Spiral Function";
@@ -66,9 +45,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox LbxOutput;
-        private System.Windows.Forms.Panel PnlSpiral;
     }
 }
 

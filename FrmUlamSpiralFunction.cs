@@ -22,10 +22,11 @@ namespace cSharpUlamSpiralFunction
 
         private void FrmUlamSpiralFunction_Load(object sender, EventArgs e)
         {
-
-            int sz = 15;
+            this.Location = new Point(600, 50);
+            Form Spiral = new Form();
+            int sz = 25;
             int ss = sz / 2;
-            UlamSpiral US = new UlamSpiral(PnlSpiral, sz);
+            UlamSpiral US = new UlamSpiral(Spiral, sz);
 
         }
     }
