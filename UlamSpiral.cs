@@ -9,12 +9,32 @@ using System.Windows.Forms;
 
 namespace cSharpUlamSpiralFunction
 {
+    enum Status
+    {
+        NoSymptoms,
+        SymptomsNotTested,
+        TestedPositive,
+        TestedNegitive,
+        ImmunityConfirmed,
+        Dead
+    }
     class UlamSpiral
     {
+        static Dictionary<Status, Color> StatusColor = new Dictionary<Status, Color>()
+        {
+            {Status.NoSymptoms,Color.White},
+            {Status.SymptomsNotTested,Color.LightPink},
+            {Status.TestedPositive,Color.Red},
+            {Status.TestedNegitive,Color.Green},
+            {Status.ImmunityConfirmed,Color.Yellow},
+            {Status.Dead,Color.Gray}
+         };
+
         private Panel pnlUlamSpiral;
         private int spiralSize;
         private int trf;
         private int labelSize;
+        private Random rnd = new Random();
 
         public UlamSpiral(Panel pnlUS, int gridSize)
         {
@@ -28,7 +48,6 @@ namespace cSharpUlamSpiralFunction
 
         private void CreateSprial()
         {
-
             for (int i = 0; i < spiralSize * spiralSize; i++)
             {
                 Point coor = UlamSpiral.UlamSpiralCoordinate(i);
@@ -36,7 +55,8 @@ namespace cSharpUlamSpiralFunction
                 Label lbl = new Label();
                 lbl.Size = new Size(labelSize, labelSize);
                 lbl.Location = new Point((coor.X + trf) * labelSize, (coor.Y + trf) * labelSize);
-                lbl.BackColor = Color.Red;
+                lbl.BackColor = StatusColor[(Status)rnd.Next(Enum.GetNames(typeof(Status)).Length)];
+                //lbl.BackColor = Color.Red;
                 lbl.BorderStyle = BorderStyle.FixedSingle;
                 lbl.Text = i.ToString();
                 lbl.Font = new Font("New Courier", labelSize / 4);
@@ -51,8 +71,8 @@ namespace cSharpUlamSpiralFunction
 
         private void Lbl_Click(object sender, EventArgs e)
         {
-            Label ABC = (Label)sender;
-            ABC.BackColor = Color.Yellow;
+            Label cell = (Label)sender;
+            cell.BackColor = StatusColor[(Status)rnd.Next(Enum.GetNames(typeof(Status)).Length)];
         }
 
         public static Point UlamSpiralCoordinate(int n)
