@@ -14,20 +14,20 @@ namespace cSharpUlamSpiralFunction
 {
     public partial class FrmUlamSpiralFunction : Form
     {
-
         public FrmUlamSpiralFunction()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
         }
 
         private void FrmUlamSpiralFunction_Load(object sender, EventArgs e)
         {
             this.Location = new Point(600, 50);
             Form Spiral = new Form();
-            int sz = 25;
-            int ss = sz / 2;
-            UlamSpiral US = new UlamSpiral(Spiral, sz);
-
+            int matrixSize = 25;
+            int frmSize = 200;
+            //int ss = sz / 2;
+            UlamSpiral US = new UlamSpiral(Spiral, matrixSize, frmSize);
         }
     }
 }

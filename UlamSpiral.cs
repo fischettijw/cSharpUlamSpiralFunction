@@ -37,25 +37,25 @@ namespace cSharpUlamSpiralFunction
         private int trf;
         private int labelSize;
         private Random rnd = new Random();
-        private int panelSize = 500;
+        private int frmSize;
 
-        public UlamSpiral(Form sForm, int gridSize)
+        public UlamSpiral(Form sForm, int gridSize, int frmSz)
         {
             spiralForm = sForm;
+            frmSize = frmSz;
             spiralSize = gridSize;
             trf = gridSize / 2;
             CreateNewFormAndPanel();
             CreateSpiral();
-
         }
 
         private void CreateNewFormAndPanel()
         {
             spiralForm = new Form();
-            spiralForm.Text = "Ulam Spiral";
+            spiralForm.Text = "Spiral";
             pnlUlamSpiral = new Panel();
             pnlUlamSpiral.Dock = DockStyle.Fill;
-            pnlUlamSpiral.Size = new Size(panelSize, panelSize);
+            pnlUlamSpiral.Size = new Size(frmSize, frmSize);
             pnlUlamSpiral.BorderStyle = BorderStyle.FixedSingle;
             labelSize = pnlUlamSpiral.Width / spiralSize;
             spiralForm.ClientSize = new Size(labelSize * spiralSize, labelSize * spiralSize);
@@ -83,7 +83,8 @@ namespace cSharpUlamSpiralFunction
                 lbl.Click += Lbl_Click;
                 pnlUlamSpiral.Controls.Add(lbl);
             }
-
+            //    Control[] lbl1 = pnlUlamSpiral.Controls.Find("N8", true);
+            //    lbl1[0].BackColor = Color.PaleTurquoise;
         }
 
         private void Lbl_Click(object sender, EventArgs e)
